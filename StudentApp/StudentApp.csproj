@@ -388,10 +388,9 @@
     <Content Include="Views\Tutes\Delete.cshtml" />
     <Content Include="Views\Admin\AdminView.cshtml" />
     <Content Include="Views\Home\loginStudent.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Event\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
