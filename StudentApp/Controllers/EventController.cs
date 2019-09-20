@@ -13,5 +13,10 @@ namespace StudentApp.Controllers
         {
             return View();
         }
+
+        public ActionResult GetData()
+        {
+            return View();
+        }
     }
 }
