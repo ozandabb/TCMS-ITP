@@ -134,6 +134,7 @@
     <Compile Include="Controllers\ClassroomController.cs" />
     <Compile Include="Controllers\ComputerLabController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\FinanceManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LabController.cs" />
@@ -388,7 +389,9 @@
     <Content Include="Views\Admin\AdminView.cshtml" />
     <Content Include="Views\Home\loginStudent.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Event\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
