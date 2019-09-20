@@ -1,0 +1,149 @@
+﻿@model IEnumerable<StudentApp.Models.Student>
+
+@{
+    ViewBag.Title = "StudentView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron">
+    <center>
+        <h1><b>Pubudu Education Centre</b></h1>
+        <h2>Student Management</h2>
+        
+    </center>
+</div>
+<style>
+    .btn-group .button {
+        background-color: white; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        float: left;
+    }
+    /*
+        .btn-group .button:hover {
+            background-color: black;
+        }*/
+
+
+    .button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    h1 {
+        display: block;
+        font-size: 2em;
+        margin-top: 0.67em;
+        margin-bottom: 0.67em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+
+   
+</style>
+
+    
+
+    <br />
+
+    <center>
+        <div class="btn-group">
+            <button class="button"> <img src="~/img/s1.png" width="20px" /> @Html.ActionLink("Add Student   ", "Create")</button>
+            <button class="button"><img src="~/img/s2.png" width="20px" />@Html.ActionLink(" Attendance ", "Attendance")</button>
+            <button class="button"> <img src="~/img/s3.png" width="20px" />@Html.ActionLink(" Filter Students ", "filterBy")</button>
+            <button class="button"><img src="~/img/s4.png" width="20px" />@Html.ActionLink(" Create Notifications ", "filterBy")</button>
+            <button class="button"><img src="~/img/s5.png" width="20px" />@Html.ActionLink(" Generate Reports ", "filterBy")</button>
+            <button class="button"><img src="~/img/s6.png" width="20px" />@Html.ActionLink(" Logout ", "filterBy")</button>
+        </div>
+    </center>
+
+
+    <br />
+
+
+    <div style="text-align:right">
+        @using (Html.BeginForm("StudentView", "Students", FormMethod.Get))
+        {
+            @Html.TextBox("searching") <button type="submit"><i class="fa fa-search" style=""></i></button>
+        }
+    </div>
+    <br />
+    <br />
+
+
+    <table class="table">
+        <tr class="success">
+            <th>
+                @Html.DisplayNameFor(model => model.Full_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.School)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Division)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact_No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parent_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parent_Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parent_Work)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Full_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.School)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Division)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact_No)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent_Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent_Work)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -1,0 +1,55 @@
+﻿@model StudentApp.Models.computer
+
+
+<h2>Save</h2>
+
+@using (Html.BeginForm("save", "ComputerLab", FormMethod.Post, new { id = "popupForm" }))
+{
+
+
+    if (Model != null && Model.MachineNO > 0)
+    {
+        @Html.HiddenFor(a => a.MachineNO)
+
+    }
+    <div class="form-group">
+        <label>Lab No</label>
+        @Html.TextBoxFor(a => a.LabNo, new { @class = "form-control " })
+        @Html.ValidationMessageFor(a => a.LabNo)
+    </div>
+    <div class="form-group">
+        <label>Machine No</label>
+        @Html.TextBoxFor(a => a.MachineNO, new { @class = "form-control " })
+        @Html.ValidationMessageFor(a => a.MachineNO)
+    </div>
+    <div class="form-group">
+        <label>Processor Type</label>
+        @Html.TextBoxFor(a => a.Processor_Type, new { @class = "form-control " })
+        @Html.ValidationMessageFor(a => a.Processor_Type)
+    </div>
+    <div class="form-group">
+        <label>Motherboard Model</label>
+        @Html.TextBoxFor(a => a.Motherboard_ID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Motherboard_ID)
+    </div>
+    <div class="form-group">
+        <label>Power Supply ID</label>
+        @Html.TextBoxFor(a => a.PowerSupply_ID, new { @class = "form-control " })
+        @Html.ValidationMessageFor(a => a.PowerSupply_ID)
+    </div>
+    <div class="form-group">
+        <label>RAM Capacity</label>
+        @Html.TextBoxFor(a => a.RAM_Capacity, new { @class = "form-control " })
+        @Html.ValidationMessageFor(a => a.RAM_Capacity)
+    </div>
+    <div class="form-group">
+        <label>HDD Capacity</label>
+        @Html.TextBoxFor(a => a.HDD_Capacity, new { @class = "form-control " })
+        @Html.ValidationMessageFor(a => a.HDD_Capacity)
+    </div>
+
+    <div>
+        <input type="submit" class="btn btn-default btn-sm" value="Save" />
+        <br />
+    </div>
+}

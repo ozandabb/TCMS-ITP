@@ -1,0 +1,149 @@
+﻿
+@model StudentApp.Models.classroom
+
+@{
+    ViewBag.Title = "view3";
+}
+
+
+<h2>Sipsewana Institute</h2>
+
+<ul class="nav nav-tabs">
+    <li><a href="../../Classroom/Index">Classrooms</a></li>
+    <li><a href="../Classroom/Create">Create New</a></li>
+
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Locations
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="../../Classroom/view2">Pubudu Institute</a></li>
+            <li class="active"><a href="../../Classroom/view3">Sipsewana Institute</a></li>
+
+        </ul>
+    </li>
+    <li><a href="../../Allocation/Index">Allocations</a></li>
+</ul>
+
+
+<div class="row">
+
+    <div class="col-sm-1 col-md-8">
+        <br />
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="row">
+
+                    <div class="col-sm-8" style="height:40px ;background-color:lightskyblue;">@Html.ActionLink("S41", "view3", new { id = 35 })</div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-2" style="height:40px ;background-color:aquamarine;">@Html.ActionLink("S31", "view3", new { id = 32 })</div>
+                    <div class="col-sm-2" style="height:40px ;background-color:deepskyblue;">@Html.ActionLink("S32", "view3", new { id = 33 })</div>
+                    <div class="col-sm-2" style="height:40px ;background-color:aquamarine;">@Html.ActionLink("S33", "view3", new { id = 34 })</div>
+                    <div class="col-sm-2" style="height:40px ;background-color:lightsteelblue;"></div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-2" style="height:40px ;background-color:cyan;">@Html.ActionLink("S21", "view3", new { id = 7 })</div>
+                    <div class="col-sm-4" style="height:40px ;background-color:lightgreen;">@Html.ActionLink("S22", "view3", new { id = 31 })</div>
+                    <div class="col-sm-2" style="height:40px ;background-color:lightslategrey;"></div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-6" style="height:40px ;background-color:lightskyblue;">@Html.ActionLink("S11", "view3", new { id = 17 })</div>
+                    <div class="col-sm-2" style="height:40px ;background-color:lightsteelblue;"></div>
+
+
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-6" style="height:40px ;background-color:aquamarine;">@Html.ActionLink("S01", "view3", new { id = 2 })</div>
+                    <div class="col-sm-2" style="height:40px ;background-color:lightslategrey;"></div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="col-sm-3 col-md-4">
+
+        <div class="form-horizontal">
+
+            <h1>  @Html.DisplayFor(model => model.name)</h1>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    <Label class="control-label col-md-2">Maximum</Label>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.max)
+                </dd>
+
+                <dt>
+                    <Label class="control-label col-md-2">Minimum</Label>
+
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.min)
+                </dd>
+
+                <dt>
+                    <Label class="control-label col-md-2">Location</Label>
+
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.location)
+                </dd>
+
+                <dt>
+                    <Label class="control-label col-md-2">Name</Label>
+
+
+                <dd>
+                    @Html.DisplayFor(model => model.name)
+                </dd>
+
+                <dt>
+                    <Label class="control-label col-md-2">Ac/Non</Label>
+
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ac_nonac)
+                </dd>
+
+            </dl>
+        </div>
+
+        <hr />
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+
+
+</div>
+
+
+

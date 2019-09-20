@@ -1,0 +1,76 @@
+﻿@model IEnumerable<StudentApp.Models.teacher>
+
+@{
+    ViewBag.Title = "TeacherView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <center>
+        <h1><b>Pubudu Education Centre</b></h1>
+        <h2>Teacher Management</h2>
+        
+    </center>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("TeacherView", "Teacher", FormMethod.Get))
+{
+    @Html.TextBox("searching") <input type="submit" value="Search" />
+}
+<br /><br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.school)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.division)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.t_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contact_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.full_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.school)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.division)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Edit", "Edit", new { id = item.t_id })</div> |
+                <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Details", "Details", new { id = item.t_id })</div> |
+                <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Delete", "Delete", new { id = item.t_id })</div>
+            </td>
+        </tr>
+    }
+
+</table>

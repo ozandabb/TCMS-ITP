@@ -1,0 +1,17 @@
+﻿@model StudentApp.Models.Student
+
+@{
+    ViewBag.Title = "StudentProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StudentProfile</h2>
+@Html.Raw(TempData["LoginSuccessmessage"])
+<div>
+    <h4>Student</h4>
+    <hr />
+    <h3>Welcome @Session["Username"]</h3>
+
+<h4>@Html.ActionLink("Logout", "../Home/Index")</h4>
+</div>
+

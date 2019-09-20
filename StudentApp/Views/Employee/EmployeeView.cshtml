@@ -1,0 +1,82 @@
+﻿@model IEnumerable<StudentApp.Models.employee>
+
+@{
+    ViewBag.Title = "EmplyeeView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <center>
+        <h1><b>Pubudu Education Centre</b></h1>
+        <h2>Employee Management</h2>
+       
+    </center>
+</div>
+
+<p>
+    <!--Html.ActionLink("Add a new Employee", "Create")-->
+
+    <a href="@Url.Action("Create", "Employee")"><img src="~/img/addemp.png" /> Add Employee </a>
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Name: @Html.TextBox("Search") &nbsp; &nbsp;
+        <input style="border-radius: 1px" type="submit" value="Search" />
+    </p>
+}
+ 
+    <table class="table">
+        <tr>
+            <th>
+                Full Name
+                <!--@Html.DisplayNameFor(model => model.full_name)-->
+            </th>
+            <th>
+                Salary
+                <!--@Html.DisplayNameFor(model => model.salary)-->
+            </th>
+            <th>
+                Birth date
+                <!--@Html.DisplayNameFor(model => model.birthday)-->
+            </th>
+            <th>
+                Email
+                <!--@Html.DisplayNameFor(model => model.email)-->
+            </th>
+            <th>
+                Contact Number
+                <!--@Html.DisplayNameFor(model => model.contact_num)-->
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.full_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salary)
+                </td>
+                <td>
+                    <!--@Html.DisplayFor(modelItem => item.birthday)-->
+                    @DateTime.Parse(Html.DisplayFor(modelItem => item.birthday).ToString()).ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact_num)
+                </td>
+                <td>
+                    <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Edit", "Edit", new { id = item.emp_id })</div> |
+                    <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Details", "Details", new { id = item.emp_id })</div> |
+                    <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Delete", "Delete", new { id = item.emp_id })</div>
+                </td>
+            </tr>
+        }
+
+    </table>
+

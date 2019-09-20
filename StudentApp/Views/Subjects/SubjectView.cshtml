@@ -1,0 +1,73 @@
+﻿@model IEnumerable<StudentApp.Models.subject>
+
+@{
+    ViewBag.Title = "SubjectView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <center>
+        <h1><b>Pubudu Education Centre</b></h1>
+        <h2>Subject Management</h2>
+        
+    </center>
+</div>
+
+<p>
+    <!--Html.ActionLink("Add a new Employee", "Create")-->
+
+    <a href="@Url.Action("Create", "Subjects")"><img style="height:40px; width:40px" src="~/img/addsub.png" /> Add Subjects </a>
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Name: @Html.TextBox("Search") &nbsp; &nbsp;
+        <input style="border-radius: 1px" type="submit" value="search" />
+    </p>
+}
+
+
+    <table class="table">
+        <tr>
+            <th>
+                Subject Name
+                <!-- @Html.DisplayNameFor(model => model.title)-->
+            </th>
+            <th>
+                Grade
+                <!--@Html.DisplayNameFor(model => model.grade)-->
+            </th>
+            <th>
+                Division
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grade)
+                </td>
+                <td>
+                    @if (item.grade >= 12)
+                    {
+                        <div>A/L</div>
+                    }
+                    else
+                    {
+                        <div>O/L</div>
+                    }
+                </td>
+                <td>
+                    <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Edit", "Edit", new { id = item.sub_id })</div> |
+                    <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Details", "Details", new { id = item.sub_id })</div> |
+                    <div style="background-color: #f1f2f6; text-align: center; display: inline-block; margin: 0; padding: 5px 14px 5px 14px; border-radius: 8px">@Html.ActionLink("Delete", "Delete", new { id = item.sub_id })</div>
+                </td>
+            </tr>
+        }
+
+    </table>
